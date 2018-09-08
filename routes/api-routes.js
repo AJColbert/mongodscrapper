@@ -69,6 +69,22 @@ module.exports = function (app)
             });
     });
 
+//Needs fixing 
+    app.post("/clear", function (req, res)
+    {
+        // Create a new Note in the db
+        db.Article.remove()
+            .then(function (dbarticle)
+            {
+                res.json("Articles Cleared")
+            })
+            .catch(function (err)
+            {
+                // If an error occurs, send it back to the client
+                res.json(err);
+            });
+    });
+
     // Route for grabbing a specific Article by id, populate it with it's note
     app.get("/articles/:id", function (req, res)
     {

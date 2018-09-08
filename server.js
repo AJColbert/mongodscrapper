@@ -19,6 +19,7 @@ app.use(express.static("public"));
 mongoose.connect("mongodb://localhost/articlescraperdb");
 
 //Routes
+require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 // Start the server
